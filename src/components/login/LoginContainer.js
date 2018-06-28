@@ -1,4 +1,3 @@
-import firebase from '../../configuration/firebase.js';
 import Login from './Login';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
