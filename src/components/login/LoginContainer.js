@@ -1,13 +1,12 @@
 import firebase from '../../configuration/firebase.js';
 import Login from './Login';
 import { connect } from 'react-redux';
-import { signIn } from '../../actions';
+import { signIn, signOut } from '../../actions';
 
 const mapDispatchToProps = dispatch => {
   return {
-    onLoginClick: () =>
-      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()),
-    onLoginComplete: user => dispatch(signIn(user))
+    onLoginComplete: user => dispatch(signIn(user)),
+    onLogoutComplete: () => dispatch(signOut())
   };
 };
 

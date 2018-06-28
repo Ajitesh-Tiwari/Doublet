@@ -1,4 +1,4 @@
-import { SIGN_IN } from '../constants/action-types';
+import { SIGN_IN, SIGN_OUT } from '../constants/action-types';
 
 const initialState = {
   isSignedIn: false,
@@ -9,6 +9,8 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_IN:
       return { ...state, isSignedIn: true, userProfile: action.payload };
+    case SIGN_OUT:
+      return { ...state, isSignedIn: false, userProfile: null };
     default:
       return state;
   }
