@@ -1,31 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import * as routes from '../../constants/routes';
-import { signIn, signOut } from '../../actions';
 import { connect } from 'react-redux';
+import './styles.css';
+import UserProfileCard from '../user-profile-card';
 
 const Navigation = ({ isSignedIn }) => (
-  <div>{isSignedIn ? <NavigationAuth /> : <NavigationNonAuth />}</div>
+  <div className="navigation">
+    <div>
+      <UserProfileCard />
+    </div>
+    {isSignedIn ? <NavigationAuth /> : <NavigationNonAuth />}
+  </div>
 );
 
 const NavigationAuth = () => (
-  <ul>
-    <li>
+  <ul className="list-group">
+    <li class="list-group-item">
       <Link to={routes.LANDING}>About</Link>
     </li>
-    <li>
+    <li class="list-group-item">
       <Link to={routes.HOME}>Home</Link>
     </li>
-    <li>
+    <li class="list-group-item">
       <Link to={routes.ACCOUNT}>Account</Link>
     </li>
   </ul>
 );
 
 const NavigationNonAuth = () => (
-  <ul>
-    <li>
+  <ul className="list-group">
+    <li class="list-group-item">
       <Link to={routes.LANDING}>About</Link>
     </li>
   </ul>

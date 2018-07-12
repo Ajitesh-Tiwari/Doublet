@@ -9,6 +9,7 @@ import * as routes from '../../constants/routes';
 import LandingPage from '../landing-page';
 import AccountPage from '../account-page';
 import HomePage from '../home-page';
+import './styles.css';
 
 class Application extends Component {
   componentDidMount() {
@@ -29,24 +30,34 @@ class Application extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="application">
           <Header />
-          <Navigation />
-          <Route
-            exact
-            path={routes.LANDING}
-            component={() => <LandingPage />}
-          />
-          {this.props.isSignedIn && (
-            <Route exact path={routes.HOME} component={() => <HomePage />} />
-          )}
-          {this.props.isSignedIn && (
-            <Route
-              exact
-              path={routes.ACCOUNT}
-              component={() => <AccountPage />}
-            />
-          )}
+          <div className="content row">
+            <div className="left-content col-md-4 col-lg-3 col-xl-2">
+              <Navigation />
+            </div>
+            <div className="right-content col-md-auto">
+              <Route
+                exact
+                path={routes.LANDING}
+                component={() => <LandingPage />}
+              />
+              {this.props.isSignedIn && (
+                <Route
+                  exact
+                  path={routes.HOME}
+                  component={() => <HomePage />}
+                />
+              )}
+              {this.props.isSignedIn && (
+                <Route
+                  exact
+                  path={routes.ACCOUNT}
+                  component={() => <AccountPage />}
+                />
+              )}
+            </div>
+          </div>
         </div>
       </Router>
     );
