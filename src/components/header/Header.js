@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginContainer from '../login/LoginContainer';
+import Login from '../login';
 
 class Header extends Component {
   render() {
@@ -9,7 +9,7 @@ class Header extends Component {
           <a className="navbar-brand" href="#">
             Doublet
           </a>
-          <LoginContainer />
+          <Login />
         </div>
       </nav>
     );
